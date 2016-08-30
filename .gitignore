@@ -1,0 +1,5 @@
+*.sw[a-z]
+*.bak
+.tags
+.tags.lock
+!.gitkeep

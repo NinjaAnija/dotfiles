@@ -1,0 +1,40 @@
+[core]
+	editor = vim
+	pager = less -R
+[color]
+	ui = auto
+	diff = auto
+	grep = auto
+	branch = auto
+	status = auto
+	interactive = auto
+[pager]
+	log = diff-highlight | less -R
+	show = diff-highlight | less -R
+	diff = diff-highlight | less -R
+[push]
+	default = nothing
+[pull]
+	default = nothing
+	rebase = true
+	ff = only
+[merge]
+	ff = false
+	tool = vimdiff
+	keepBackup = false
+[mergetool]
+	keepBackup = false
+[grep]
+	lineNumber = true
+[receive]
+	denyDeleteCurrent = warn
+[alias]
+	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
+	refresh= !git fetch origin && git remote prune origin
+	s = status
+	c = commit
+	b = branch
+	di  = diff
+	d1 = diff HEAD~
+	d2 = diff HEAD~2
+	d3 = diff HEAD~3
