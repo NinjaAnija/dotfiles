@@ -53,3 +53,7 @@ if type __git_complete >/dev/null 2>&1; then
   __git_complete g __git_main
 fi
 
+if [ -r ~/.hubcompletion.d/hub.bash_completion.sh ]; then
+  . ~/.hubcompletion.d/hub.bash_completion.sh
+fi
+
