@@ -30,7 +30,7 @@ export HISTCONTROL=ignoreboth:erasedups
 export HISTIGNORE="ls*:ll*:pwd*:cd*:cp*:sudo cp*:mv*:sudo mv*:rm*:sudo rm*"
 export VERSION_CONTROL=t
 
-if type brew >/dev/null 2>&1 [ -d /usr/local/opt/coreutils/libexec ]; then
+if type brew >/dev/null 2>&1 && [ -d /usr/local/opt/coreutils/libexec ]; then
   export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
   export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 fi
