@@ -16,9 +16,9 @@ esac
 
 export PROMPT_DIRTRIM=2
 if type __git_ps1 >/dev/null 2>&1; then
-  export PS1='\[\e[90m\][\u\[\e[${ps1color}m\]@\e[1m\h \[\e[0m\]\w \[\e[90m\]]\[\e[35m\]$(__git_ps1) \[\e[90m\]\$\[\e[0m\] '
+  export PS1='\[\e[90m\][\u\[\e[${ps1color}m\]@\[\e[1m\]\h \[\e[0m\]\w \[\e[90m\]]\[\e[35m\]$(__git_ps1) \[\e[90m\]\$\[\e[0m\] '
 else
-  export PS1='\[\e[90m\][\u\[\e[${ps1color}m\]@\e[1m\h \[\e[0m\]\w \[\e[90m\]] \$\[\e[0m\] '
+  export PS1='\[\e[90m\][\u\[\e[${ps1color}m\]@\[\e[1m\]\h \[\e[0m\]\w \[\e[90m\]] \$\[\e[0m\] '
 fi
 
 if type vim >/dev/null 2>&1; then
