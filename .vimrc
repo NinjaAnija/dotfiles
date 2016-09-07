@@ -264,6 +264,16 @@ let g:lightline.component = {
 \ 'modified': '%m',
 \ }
 
+let g:vdebug_options = {}
+"let g:vdebug_options['server'] = '127.0.0.1'
+"let g:vdebug_options["port"] = 9000
+"let g:vdebug_options["ide_key"] = 'vdebug.takashi-ogawa'
+
+hi default DbgCurrentLine term=reverse ctermfg=22 ctermbg=10 guifg=#005f00 guibg=#00ff00
+hi default DbgCurrentSign term=reverse ctermfg=22 ctermbg=10 guifg=#005f00 guibg=#00ff00
+hi default DbgBreakptLine term=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
+hi default DbgBreakptSign term=reverse ctermfg=22 ctermbg=10 guifg=#005f00 guibg=#00ff00
+
 function! LightLineHostName()
   return '@' . hostname()
 endfunction
