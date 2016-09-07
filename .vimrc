@@ -214,7 +214,6 @@ set ttyfast
 set lazyredraw
 
 set showcmd
-set laststatus=2
 
 :highlight zenkakuda ctermbg=7
 :call matchadd("zenkakuda", '\%u3000')
@@ -237,6 +236,9 @@ if !exists('g:neocomplete#keyword_patterns')
 endif
 let g:neocomplete#keyword_patterns._ = '\h\w*'
 
+" statusline
+set laststatus=2
+
 "pure statusline
 "set statusline=%r%m@%{hostname()}\ 
 "set statusline+=%=
@@ -249,12 +251,13 @@ let g:neocomplete#keyword_patterns._ = '\h\w*'
 let g:lightline = {
 \ 'colorscheme': 'PaperColor',
 \ 'active': {
-\   'left': [ ['hostname'], ['mode', 'paste', ], ['readonly', 'modified', 'relativepath',] ],
-\   'right': [ [ 'fileformat', 'fileencoding', 'lineinfo' ], ['fugitive'] ],
+\   'left': [ [ 'hostname' ], [ 'mode', 'paste', ], [ 'readonly', 'modified', 'relativepath', ] ],
+\   'right': [ [ 'fileformat', 'fileencoding', 'lineinfo' ], [ 'gittopdir', 'gitstatus' ] ],
 \ },
 \ 'component_function': {
 \   'hostname': 'LightLineHostName',
-\   'fugitive': 'LightLineFugitive',
+\   'gitstatus': 'LightLineGitStatus',
+\   'gittopdir': 'LightLineGitTopDir',
 \ }
 \ }
 
@@ -264,6 +267,28 @@ let g:lightline.component = {
 \ 'modified': '%m',
 \ }
 
+function! LightLineHostName()
+  return '@' . hostname()
+endfunction
+
+function! LightLineGitStatus()
+  return exists('*fugitive#statusline') ? '(' . fugitive#head(7) . ')' : ''
+endfunction
+
+function! LightLineGitTopDir()
+  if !exists('*fugitive#extract_git_dir')
+    return ''
+  endif
+  let dirpath = fugitive#extract_git_dir(expand('%:p'))
+  if strlen(dirpath) == 0
+    return ''
+  endif
+  let dirparts = split(dirpath, '/')
+  let gittopdir = remove(dirparts, len(dirparts)-2)
+  return gittopdir
+endfunction
+
+"vdebug
 let g:vdebug_options = {}
 "let g:vdebug_options['server'] = '127.0.0.1'
 "let g:vdebug_options["port"] = 9000
@@ -273,16 +298,3 @@ hi default DbgCurrentLine term=reverse ctermfg=22 ctermbg=10 guifg=#005f00 guibg
 hi default DbgCurrentSign term=reverse ctermfg=22 ctermbg=10 guifg=#005f00 guibg=#00ff00
 hi default DbgBreakptLine term=NONE ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 hi default DbgBreakptSign term=reverse ctermfg=22 ctermbg=10 guifg=#005f00 guibg=#00ff00
-
-function! LightLineHostName()
-  return '@' . hostname()
-endfunction
-
-function! LightLineFugitive()
-  if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-    return fugitive#head()
-  else
-    return ''
-  endif
-endfunction
-
