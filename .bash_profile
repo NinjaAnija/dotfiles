@@ -8,9 +8,9 @@ fi
 # User specific environment and startup programs
 case "$HOSTNAME" in
   *\-local*) ps1color=36;;
-  *\-dev*)   ps1color=32;;
-  *\-stg*)   ps1color=33;;
-  *\-prd*)   ps1color=31;;
+  *\dev-*)   ps1color=32;;
+  *\stg-*)   ps1color=33;;
+#  *\prd-*)   ps1color=31;;
   *)         ps1color=37;;
 esac
 
