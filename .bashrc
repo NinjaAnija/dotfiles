@@ -6,6 +6,9 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific aliases and functions
+set -o vi
+bind '"\C-p": history-search-backward'
+bind '"\C-n": history-search-forward'
 
 # shopt
 shopt -s autocd
