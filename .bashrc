@@ -19,7 +19,7 @@ shopt -s cdspell
 # User specific aliases and functions
 alias ..='cd ..'
 alias ls='ls --color=auto'
-alias ll='ls -la'
+alias ll='ls -lah'
 alias grep='grep --color'
 alias df='df -h'
 alias free='free -h'
