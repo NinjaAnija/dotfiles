@@ -55,3 +55,18 @@ if type __git_complete >/dev/null 2>&1; then
   __git_complete g __git_main
 fi
 
+# re-overwrite PS1 (overwritten with /etc/bashrc)
+case "$HOSTNAME" in
+  *\-local*) ps1color=36;;
+  *\dev-*)   ps1color=32;;
+  *\stg-*)   ps1color=33;;
+#  *\prd-*)   ps1color=31;;
+  *)         ps1color=37;;
+esac
+
+if type __git_ps1 >/dev/null 2>&1; then
+  export PS1='\[\e[90m\][\u\[\e[${ps1color}m\]@\[\e[1m\]\h \[\e[0m\]\w \[\e[90m\]]\[\e[35m\]$(__git_ps1) \[\e[90m\]\$\[\e[0m\] '
+else
+  export PS1='\[\e[90m\][\u\[\e[${ps1color}m\]@\[\e[1m\]\h \[\e[0m\]\w \[\e[90m\]] \$\[\e[0m\] '
+fi
+
