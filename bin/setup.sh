@@ -17,7 +17,7 @@ fi
 
 export VERSION_CONTROL=t
 
-DOTFILES=(.bashrc .bash_profile .bash_logout .inputrc .gitconfig .tigrc .tmux.conf .vimrc)
+DOTFILES=(.Brewfile .bashrc .bash_profile .bash_logout .inputrc .gitconfig .tigrc .tmux.conf .vimrc)
 
 for file in ${DOTFILES[@]}
 do
