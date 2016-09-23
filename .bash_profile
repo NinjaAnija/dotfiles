@@ -45,8 +45,8 @@ if [ -x ~/.anyenv/bin/anyenv ] && type anyenv >/dev/null 2>&1; then
   eval "$(anyenv init -)"
 fi
 
-if [ -d ~/.gitdiffhighlight.d ]; then
-  export PATH=$PATH:$HOME/.gitdiffhighlight.d
+if [ -d /usr/local/share/git-core/contrib/diff-highlight ]; then
+  export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 fi
 
 export PATH=$PATH:$HOME/bin

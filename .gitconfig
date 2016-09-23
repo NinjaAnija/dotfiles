@@ -9,9 +9,9 @@
 	status = auto
 	interactive = auto
 [pager]
-	log = diff-highlight | less -R
-	show = diff-highlight | less -R
-	diff = diff-highlight | less -R
+	log = "if type diff-highlight >/dev/null 2>&1; then diff-highlight | less -R; else less -R; fi;"
+	show = "if type diff-highlight >/dev/null 2>&1; then diff-highlight | less -R; else less -R; fi;"
+	diff = "if type diff-highlight >/dev/null 2>&1; then diff-highlight | less -R; else less -R; fi;"
 [push]
 	default = nothing
 [pull]

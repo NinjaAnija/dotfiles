@@ -40,13 +40,12 @@ if type tig >/dev/null 2>&1; then
   alias gl='tig log -p'
 fi
 
-if [ -r ~/.gitcompletion.d/git-prompt.sh ]; then
-  . ~/.gitcompletion.d/git-prompt.sh
-fi
-
-if [ -r ~/.gitcompletion.d/git-completion.bash ]; then
-  . ~/.gitcompletion.d/git-completion.bash
-fi
+mkdir -p "$HOME/.bash_completion.d"
+[ -d /usr/local/etc/bash_completion.d/ ] && cp /usr/local/etc/bash_completion.d/* "$HOME/.bash_completion.d"
+while read line
+do
+  source "$line"
+done < <(find "$HOME/.bash_completion.d/" -type f)
 
 if type __git_complete >/dev/null 2>&1; then
   _g ()
@@ -54,9 +53,5 @@ if type __git_complete >/dev/null 2>&1; then
     __git_wrap__git_main
   }
   __git_complete g __git_main
-fi
-
-if [ -r ~/.hubcompletion.d/hub.bash_completion.sh ]; then
-  . ~/.hubcompletion.d/hub.bash_completion.sh
 fi
 

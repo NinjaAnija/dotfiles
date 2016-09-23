@@ -5,20 +5,6 @@ if ! type git >/dev/null 2>&1; then
   exit 1
 fi
 
-if ! [ -r $HOME/.gitcompletion.d/git-prompt.sh ] || \
-   ! [ -r $HOME/.gitcompletion.d/git-completion.bash ] || \
-   ! [ -x $HOME/.gitdiffhighlight.d/diff-highlight ]; then
-  echo '3 git contrib are required for setup dotfiles'
-  echo '-----------------------------------------'
-  echo '~/.gitcompletion.d/git-prompt.sh'
-  echo '~/.gitcompletion.d/git-completion.bash'
-  echo '~/.gitdiffhighlight.d/diff-highlight'
-  echo '-----------------------------------------'
-  echo 'usually, these are present under /path/to/git/src/contrib/'
-  echo 'make ~/.git*.d/ symlink and retry setup'
-  exit 2
-fi
-
 gitv=`git --version | cut -d' ' -f3`
 gitmajorv=`echo $gitv | cut -d'.' -f1`
 gitmajorv=`expr $gitmajorv + 1`
