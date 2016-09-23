@@ -24,7 +24,8 @@ fi
 if type vim >/dev/null 2>&1; then
   export EDITOR=vim
 fi
-if type vim >/dev/null 2>&1; then
+
+if type less >/dev/null 2>&1; then
   export PAGER=less
 fi
 export HISTCONTROL=ignoreboth:erasedups
