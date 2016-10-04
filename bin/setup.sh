@@ -17,7 +17,9 @@ fi
 
 export VERSION_CONTROL=t
 
-DOTFILES=(.Brewfile .bashrc .bash_profile .bash_logout .inputrc .gitconfig .tigrc .tmux.conf .vimrc)
+DOTFILES=(.Brewfile .bashrc .bash_profile .bash_logout .inputrc .gitconfig .tigrc .tmux.conf .vimrc .vim/ftdetect/filetype.vim)
+
+mkdir -p $HOME/.vim/ftdetect
 
 for file in ${DOTFILES[@]}
 do
