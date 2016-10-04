@@ -28,7 +28,7 @@ if [ -r ~/.dircolors ] && type dircolors >/dev/null 2>&1; then
   eval "$(dircolors ~/.dircolors)"
 fi
 
-if [ -x ~/.anyenv/bin/anyenv ] && type anyenv >/dev/null 2>&1; then
+if [ -x ~/.anyenv/bin/anyenv ]; then
   export PATH="$HOME/.anyenv/bin:$PATH"
   eval "$(anyenv init -)"
 fi
