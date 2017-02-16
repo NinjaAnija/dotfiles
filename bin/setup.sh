@@ -46,11 +46,7 @@ if ! [ -d $HOME/.anyenv ]; then
   git clone https://github.com/znz/anyenv-git $HOME/.anyenv/plugins/anyenv-git
 else
   echo '-- update anyenv'
-  cd $HOME/.anyenv && git pull
-  echo '-- update anyenv/plugin/anyenv-update'
-  cd $HOME/.anyenv/plugins/anyenv-update && git pull
-  echo '-- update anyenv/plugin/anyenv-git'
-  cd $HOME/.anyenv/plugins/anyenv-git && git pull
+  anyenv update
 fi
 
 if [ ! -d $HOME/.tmux/plugins/tpm ]; then
