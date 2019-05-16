@@ -28,8 +28,11 @@ if [ -r ~/.dircolors ] && type dircolors >/dev/null 2>&1; then
   eval "$(dircolors ~/.dircolors)"
 fi
 
-if [ -x ~/.anyenv/bin/anyenv ]; then
+if [ -r ~/.anyenv/bin/anyenv ]; then
   export PATH="$HOME/.anyenv/bin:$PATH"
+fi
+
+if type anyenv >/dev/null 2>&1; then
   eval "$(anyenv init -)"
 fi
 
@@ -38,3 +41,4 @@ if [ -d /usr/local/share/git-core/contrib/diff-highlight ]; then
 fi
 
 export PATH=$PATH:$HOME/bin
+

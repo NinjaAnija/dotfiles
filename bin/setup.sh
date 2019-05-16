@@ -25,7 +25,8 @@ for file in ${DOTFILES[@]}
 do
   dotfilesymlink=`readlink $HOME/$file`
   if [ -z $dotfilesymlink ] || [ $dotfilesymlink != "$HOME/.dotfiles/$file" ]; then
-    ln -binsv $HOME/.dotfiles/$file $HOME/$file
+    # when run this on new mac, you should "brew bundle --file=~/.dotfiles/.Brewfile" at first
+    ln -insv $HOME/.dotfiles/$file $HOME/$file
   fi
 done
 

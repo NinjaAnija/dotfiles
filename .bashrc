@@ -5,6 +5,11 @@ if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
+# Source SFDX ENV
+if [ -f ~/.sfdxrc ]; then
+  . ~/.sfdxrc
+fi
+
 # User specific aliases and functions
 set -o vi
 bind '"\C-p": history-search-backward'
@@ -18,8 +23,8 @@ shopt -s cdspell
 
 # User specific aliases and functions
 alias ..='cd ..'
-alias ls='ls --color=auto'
-alias ll='ls -lah'
+alias ls='ls --color=auto -F'
+alias ll='ls -lahF'
 alias grep='grep --color'
 alias df='df -h'
 alias free='free -h'

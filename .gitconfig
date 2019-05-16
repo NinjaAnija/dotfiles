@@ -38,3 +38,10 @@
 	d1 = diff HEAD~
 	d2 = diff HEAD~2
 	d3 = diff HEAD~3
+[user]
+	name = Takashi OGAWA
+	email = ogw.tttt@gmail.com
+
+[includeif "gitdir:~/tyl"]
+	path = ~/tyl/.gitconfig
+
